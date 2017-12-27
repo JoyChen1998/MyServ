@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.util.Stack;
 
 /**
- * @author ¼Æ161 CJY in School of Computer and Control Engineering in YTU,
- *         Êı¾İ½á¹¹¿Î³ÌÉè¼Æ Made on 2017-12-15 14:45:38, 
+ * @author JoyChen
+ *         æ•°æ®ç»“æ„è¯¾ç¨‹è®¾è®¡ Made on 2017-12-15 14:45:38, 
  *         Project's name: Directory's Tree
  */
 public class Main {
@@ -25,27 +25,27 @@ public class Main {
 	static TreeNode[] tn = new TreeNode[MAX_Node_Num];
 	public static int TreeNodeNum_Start = 1;
 	public static int tmp = 0;
-	public static int cnt = 0; // ¼ÆÊıÒªÊä³öËõ½ø¸öÊı
+	public static int cnt = 0; // è®¡æ•°è¦è¾“å‡ºç¼©è¿›ä¸ªæ•°
 
 	/**
-	 * @param x ÎÄ¼ş¼ĞÇ°×º
-	 * @param Cnt ¼ÇÂ¼µ±Ç°½ÚµãµÄ×Ó½Úµã¸öÊı
-	 * @param Max_Node_Num ×î´óÊ÷½Úµã¸öÊı
-	 * @param filecount ¼ÇÂ¼ÎÄ¼ş¸öÊı
-	 * @param directorycount ¼ÇÂ¼ÎÄ¼ş¼Ğ¸öÊı
-	 * @param depth ³õÊ¼»¯Éî¶È
-	 * @param stack ÓÃÕ»¼ÇÂ¼µ±Ç°ÎÄ¼ş¼ĞÄÚµÄµÄÎÄ¼şµÈ
-	 * @param ex Ê÷ĞÎ±íÊ¾Ç°×º
-	 * @param tmp ÁÙÊ±±íÊ¾TreeNodeNum
-	 * @param currentDepth ±íÊ¾µ±Ç°ÎÄ¼şÊ÷Éî¶È
-	 * @param TreeNodeNum_Start ±íÊ¾ÆğÊ¼Node½Úµã
-	 * @param queue ÓÃ¶ÓÁĞ¼ÇÂ¼ĞÖµÜÄ¿Â¼
+	 * @param x æ–‡ä»¶å¤¹å‰ç¼€
+	 * @param Cnt è®°å½•å½“å‰èŠ‚ç‚¹çš„å­èŠ‚ç‚¹ä¸ªæ•°
+	 * @param Max_Node_Num æœ€å¤§æ ‘èŠ‚ç‚¹ä¸ªæ•°
+	 * @param filecount è®°å½•æ–‡ä»¶ä¸ªæ•°
+	 * @param directorycount è®°å½•æ–‡ä»¶å¤¹ä¸ªæ•°
+	 * @param depth åˆå§‹åŒ–æ·±åº¦
+	 * @param stack ç”¨æ ˆè®°å½•å½“å‰æ–‡ä»¶å¤¹å†…çš„çš„æ–‡ä»¶ç­‰
+	 * @param ex æ ‘å½¢è¡¨ç¤ºå‰ç¼€
+	 * @param tmp ä¸´æ—¶è¡¨ç¤ºTreeNodeNum
+	 * @param currentDepth è¡¨ç¤ºå½“å‰æ–‡ä»¶æ ‘æ·±åº¦
+	 * @param TreeNodeNum_Start è¡¨ç¤ºèµ·å§‹NodeèŠ‚ç‚¹
+	 * @param queue ç”¨é˜Ÿåˆ—è®°å½•å…„å¼Ÿç›®å½•
 	 *
 	 */
 	/**
 	 * 
-	 * Ê×ÏÈÊäÈëÒ»¸öÂ·¾¶(¿´×öÒ»¸ö½Úµã)£¬È»ºóÅĞ¶ÏÊÇ·ñ´æÔÚ¸ÃÂ·¾¶,
-	 * Èç¹û´æÔÚµÄ»°£¬Ñ¡ÔñÒªµ÷ÓÃµÄ·½·¨£¬µ±Ñ¡Ôñ4µÄÊ±ºò£¬½«flagÖÃ0£¬½áÊø³ÌĞò
+	 * é¦–å…ˆè¾“å…¥ä¸€ä¸ªè·¯å¾„(çœ‹åšä¸€ä¸ªèŠ‚ç‚¹)ï¼Œç„¶ååˆ¤æ–­æ˜¯å¦å­˜åœ¨è¯¥è·¯å¾„,
+	 * å¦‚æœå­˜åœ¨çš„è¯ï¼Œé€‰æ‹©è¦è°ƒç”¨çš„æ–¹æ³•ï¼Œå½“é€‰æ‹©4çš„æ—¶å€™ï¼Œå°†flagç½®0ï¼Œç»“æŸç¨‹åº
 	 */
 	public static void main(String[] args) throws java.lang.NullPointerException, IOException {
 		// TODO Auto-generated method stub
@@ -62,15 +62,15 @@ public class Main {
 		} else
 			System.out.println("This path doesn't exist!");
 		in.close();
-		System.out.println("³ÌĞò½áÊø,»¶Ó­Ê¹ÓÃ");
+		System.out.println("ç¨‹åºç»“æŸ,æ¬¢è¿ä½¿ç”¨");
 	}
 
 	/**
-	 * @param choice  Îªchoice·½·¨·µ»ØµÄÕûĞÍÖµ
-	 * @param path ÊäÈëµÄ·ÃÎÊÂ·¾¶
+	 * @param choice  ä¸ºchoiceæ–¹æ³•è¿”å›çš„æ•´å‹å€¼
+	 * @param path è¾“å…¥çš„è®¿é—®è·¯å¾„
 	 * @throws IOException
 	 * 
-	 * Í¨¹ıµ÷ÓÃchoice·½·¨·µ»ØÑ¡ÏîÖµ£¬È·¶¨µ÷ÓÃµÄ·½·¨
+	 * é€šè¿‡è°ƒç”¨choiceæ–¹æ³•è¿”å›é€‰é¡¹å€¼ï¼Œç¡®å®šè°ƒç”¨çš„æ–¹æ³•
 	 */
 	public static void goto_methods(int choice, File path) throws IOException {
 		// TODO Auto-generated method stub
@@ -91,20 +91,20 @@ public class Main {
 	}
 	
 	/**
-	 * @return  ·µ»ØµÄÕûĞÍÖµ×÷Îªgoto_methods·½·¨µÄ²ÎÊı
+	 * @return  è¿”å›çš„æ•´å‹å€¼ä½œä¸ºgoto_methodsæ–¹æ³•çš„å‚æ•°
 	 */
 	private static int choice() {
 		// TODO Auto-generated method stub
 		String n ;
 		int s ;
 		while (true) {
-			System.out.println("-----------------ÃÀÀöµÄ·Ö¸îÏß------------------");
+			System.out.println("-----------------ç¾ä¸½çš„åˆ†å‰²çº¿------------------");
 			System.out.println("|Make a Choice :                              |");
 			System.out.println("|1.Print its directory's subtrees.            |");
 			System.out.println("|2.Print its parent directory tree.           |");
 			System.out.println("|3.Print its brother tree set.                |");	
 			System.out.println("|4.Exit.                                      |");
-			System.out.println("-----------------ÃÀÀöµÄ·Ö¸îÏß------------------");
+			System.out.println("-----------------ç¾ä¸½çš„åˆ†å‰²çº¿------------------");
 			
 			n = in.next();
 			s = n.charAt(0)-'0';
@@ -117,12 +117,12 @@ public class Main {
 	}
 	
 	/**
-	 * @param path	ÊÖ¶¯ÊäÈëµÄÂ·¾¶
+	 * @param path	æ‰‹åŠ¨è¾“å…¥çš„è·¯å¾„
 	 * @throws IOException
 	 * 
-	 * Êä³ö×ÓÄ¿Â¼Ê÷(Tree)
+	 * è¾“å‡ºå­ç›®å½•æ ‘(Tree)
 	 * 
-	 * ¸Ã·½·¨Í¨¹ıÏÈÅĞ¶ÏÊÇ·ñ´æÔÚÒÔ¼°ÊÇ·ñÊÇÒ»¸öÄ¿Â¼£¬Ëæºóµ÷ÓÃbuild_Tree·½·¨£¬½¨Á¢Ò»¿ÅÎÄ¼şµÄ¶à²æËÑË÷Ê÷
+	 * è¯¥æ–¹æ³•é€šè¿‡å…ˆåˆ¤æ–­æ˜¯å¦å­˜åœ¨ä»¥åŠæ˜¯å¦æ˜¯ä¸€ä¸ªç›®å½•ï¼Œéšåè°ƒç”¨build_Treeæ–¹æ³•ï¼Œå»ºç«‹ä¸€é¢—æ–‡ä»¶çš„å¤šå‰æœç´¢æ ‘
 	 */
 	public static void print_subTree(File path) throws IOException {
 		// TODO Auto-generated method stub
@@ -143,16 +143,16 @@ public class Main {
 				depth = tn[i].getDepth();
 		}
 		depth++;
-		System.out.println("¸ÃÄ¿Â¼ÏÂÒ»¹²ÓĞ:" + filecount + "¸öÎÄ¼ş," + directorycount + "¸öÄ¿Â¼, Ä¿Â¼Éî¶ÈÎª:" + depth);
+		System.out.println("è¯¥ç›®å½•ä¸‹ä¸€å…±æœ‰:" + filecount + "ä¸ªæ–‡ä»¶," + directorycount + "ä¸ªç›®å½•, ç›®å½•æ·±åº¦ä¸º:" + depth);
 	}
 
 	/**
-	 * @param path ÊÖ¶¯ÊäÈëµÄÂ·¾¶
+	 * @param path æ‰‹åŠ¨è¾“å…¥çš„è·¯å¾„
 	 * 
-	 * Êä³öµ±Ç°Â·¾¶µÄ¸¸Â·¾¶(Stack & Tree)
+	 * è¾“å‡ºå½“å‰è·¯å¾„çš„çˆ¶è·¯å¾„(Stack & Tree)
 	 * 
-	 * Í¨¹ı»ñÈ¡Â·¾¶µÄ¸¸Â·¾¶£¬½«¸¸Â·¾¶´æÈëÕ»ÖĞ£¬ÔÙÒÔ´ËÎªÂ·¾¶£¬ÇóµÃ¸¸Â·¾¶ ´æÈëÕ»£¬Ö±ÖÁÆä¸¸Â·¾¶Îªnull,ËæºóÉú³ÉÒ»¿ÅÊ÷(Ò²¿ÉÒÔ²»ÕâÃ´×ö),
-	 * ³öÕ»Õ»¶¥ÔªËØ£¬×÷ÎªÊ÷µÄ¸ù½Úµã£¬È»ºó¼ÌĞø³öÕ»£¬½«ÆäºóÃæµÄÔªËØ×÷Îª¸ù½ÚµãµÄ×Ó½Úµã¡£
+	 * é€šè¿‡è·å–è·¯å¾„çš„çˆ¶è·¯å¾„ï¼Œå°†çˆ¶è·¯å¾„å­˜å…¥æ ˆä¸­ï¼Œå†ä»¥æ­¤ä¸ºè·¯å¾„ï¼Œæ±‚å¾—çˆ¶è·¯å¾„ å­˜å…¥æ ˆï¼Œç›´è‡³å…¶çˆ¶è·¯å¾„ä¸ºnull,éšåç”Ÿæˆä¸€é¢—æ ‘(ä¹Ÿå¯ä»¥ä¸è¿™ä¹ˆåš),
+	 * å‡ºæ ˆæ ˆé¡¶å…ƒç´ ï¼Œä½œä¸ºæ ‘çš„æ ¹èŠ‚ç‚¹ï¼Œç„¶åç»§ç»­å‡ºæ ˆï¼Œå°†å…¶åé¢çš„å…ƒç´ ä½œä¸ºæ ¹èŠ‚ç‚¹çš„å­èŠ‚ç‚¹ã€‚
 	 */
 	private static void print_parentTree(File path) {
 		// TODO Auto-generated method stub
@@ -166,7 +166,7 @@ public class Main {
 			if(path.getParent() != null)
 				path = new File(path.getParent());
 		}
-//		ÅĞ¶ÏÊÇ·ñÕ»¿Õ£¬²¢½«Õ»ÖĞÔªËØÄÉÈëÊ÷£¬³öÕ»
+//		åˆ¤æ–­æ˜¯å¦æ ˆç©ºï¼Œå¹¶å°†æ ˆä¸­å…ƒç´ çº³å…¥æ ‘ï¼Œå‡ºæ ˆ
 		while (!stack.isEmpty()) {
 			tmp = cnt;
 			tn[++cnt] = new TreeNode();
@@ -175,7 +175,7 @@ public class Main {
 			tn[tmp].addChildNode(tn[cnt]);
 			stack.pop();
 		}
-//		²ã´Î±éÀú¸÷¸ö½Úµã
+//		å±‚æ¬¡éå†å„ä¸ªèŠ‚ç‚¹
 		for (int i = 0; i < cnt; i++)
 			tn[i].traverse();
 		for(int i = 0 ; i < cnt ; i++)
@@ -184,15 +184,15 @@ public class Main {
 			System.out.println(ex + x +prepath.getPath());
 		else
 			System.out.println(ex + prepath.getPath());
-		System.out.println("¸ÃÄ¿Â¼µÄ¸¸Ä¿Â¼¹²ÓĞ:" + cnt +"¸ö" );
+		System.out.println("è¯¥ç›®å½•çš„çˆ¶ç›®å½•å…±æœ‰:" + cnt +"ä¸ª" );
 	}
 
 	/**
-	 * @param path ÊÖ¶¯ÊäÈëµÄÂ·¾¶
+	 * @param path æ‰‹åŠ¨è¾“å…¥çš„è·¯å¾„
 	 * 
-	 * Êä³ö¸Ã½ÚµãµÄĞÖµÜ½Úµã(Queue)
+	 * è¾“å‡ºè¯¥èŠ‚ç‚¹çš„å…„å¼ŸèŠ‚ç‚¹(Queue)
 	 * 
-	 * ÏÈ»ñÈ¡µ±Ç°Â·¾¶µÄ¸¸½Úµã£¬È»ºóÍ¨¹ı¸¸½Úµã»ñÈ¡ÆäËùÓĞµÄ×Ó½Úµã£¬²¢¼ÓÈë¶ÓÁĞ£¬»ñÈ¡Íêµ±Ç°ËùÓĞ×Ó½ÚµãÖ®ºó£¬³ö¶ÓËùÓĞÔªËØ²¢Êä³ö½á¹û¡£
+	 * å…ˆè·å–å½“å‰è·¯å¾„çš„çˆ¶èŠ‚ç‚¹ï¼Œç„¶åé€šè¿‡çˆ¶èŠ‚ç‚¹è·å–å…¶æ‰€æœ‰çš„å­èŠ‚ç‚¹ï¼Œå¹¶åŠ å…¥é˜Ÿåˆ—ï¼Œè·å–å®Œå½“å‰æ‰€æœ‰å­èŠ‚ç‚¹ä¹‹åï¼Œå‡ºé˜Ÿæ‰€æœ‰å…ƒç´ å¹¶è¾“å‡ºç»“æœã€‚
 	 */
 	private static void print_brotherTree(File path) {
 		// TODO Auto-generated method stub
@@ -210,7 +210,7 @@ public class Main {
 				}
 			}
 			System.out.println("This Path's Brother Tree:");
-//			µ±¶Ó²»Îª¿ÕÊ±£¬Êä³ö¶ÓÊ×ÔªËØ
+//			å½“é˜Ÿä¸ä¸ºç©ºæ—¶ï¼Œè¾“å‡ºé˜Ÿé¦–å…ƒç´ 
 			while (queue.peek() != null) {
 				if (queue.peek() != path.getName()){
 					File tmpFile = new File(queue.peek());
@@ -226,19 +226,19 @@ public class Main {
 	}
 
 	/**
-	 * @param path	ÊÖ¶¯ÊäÈëµÄÂ·¾¶
-	 * @param depth ¹¹½¨Ê÷µÄÉî¶È(²ãÊı)
+	 * @param path	æ‰‹åŠ¨è¾“å…¥çš„è·¯å¾„
+	 * @param depth æ„å»ºæ ‘çš„æ·±åº¦(å±‚æ•°)
 	 * @throws IOException
 	 * 
-	 * ¹¹½¨Ò»¿Å¶à²æËÑË÷Ê÷(Tree)
+	 * æ„å»ºä¸€é¢—å¤šå‰æœç´¢æ ‘(Tree)
 	 * 
-	 * Ê×ÏÈ½«ÊäÈëµÄpathÂ·¾¶×÷ÎªÊ÷µÄ¸ù½Úµã£¬»ñÈ¡pathÂ·¾¶ÏÂµÄËùÓĞÎÄ¼şÁĞ±í£¬½«ÆäÂ·¾¶ÏÂµÄÎÄ¼şºÍÎÄ¼ş¼Ğ×÷Îª¸Ã¸ù½ÚµãµÄ×Ó½Úµã£¬
-	 * ¼ÇÂ¼¸Ã½ÚµãµÄ½ÚµãÏÂ±ê£¬¸Ã½ÚµãµÄ¸¸½ÚµãÏÂ±ê£¬ÒÔ¼°¸Ã½ÚµãµÄÉî¶È(²ãÊı)£¬
-	 * Èç¹û×Ó½ÚµãÎªÄ¿Â¼£¬Ôò½«¸Ã½Úµã×÷ÎªÁÙÊ±µÄ¸ù½Úµã£¬Í¬Ê±´Ó¸Ã½Úµã½øĞĞ±éÀú£¬»ñÈ¡¸Ã½ÚµãÏÂµÄÎÄ¼şÁĞ±í£¬½«Æä×÷ÎªÄ¿Â¼µÄ×Ó½Úµã£¬
-	 * Í¬Ê±£¬¼ÇÂ¼×÷ÎªÄ¿Â¼µÄ×Ó½ÚµãµÄ¸öÊı¡£
-	 * Ö±µ½ËùÓĞµÄ½Úµã±éÀúÍê±Ï£¬µ±Ç°½¨Á¢ºÃÁËÒ»¿Å¶à²æËÑË÷Ê÷¡£
-	 * ±éÀúÊ±£¬Í¨¹ı±éÀúÃ¿¸ö½Úµã£¬¿´ÊÇ·ñÓĞ×Ó½ÚµãÁĞ±í£¬ÓĞµÄ»°Ôò½«ÆäÊä³ö£¬²¢¼ÌĞø²éÕÒÊÇ·ñÓĞ×Ó½Úµã
-	 * ±éÀúÊ±£¬Í¨¹ı·ÃÎÊ¶È²»Îª0µÄ½ÚµãÀ´±éÀúÎÄ¼şÄ¿Â¼£¬²»±éÀúÒ¶×Ó½áµã¡£
+	 * é¦–å…ˆå°†è¾“å…¥çš„pathè·¯å¾„ä½œä¸ºæ ‘çš„æ ¹èŠ‚ç‚¹ï¼Œè·å–pathè·¯å¾„ä¸‹çš„æ‰€æœ‰æ–‡ä»¶åˆ—è¡¨ï¼Œå°†å…¶è·¯å¾„ä¸‹çš„æ–‡ä»¶å’Œæ–‡ä»¶å¤¹ä½œä¸ºè¯¥æ ¹èŠ‚ç‚¹çš„å­èŠ‚ç‚¹ï¼Œ
+	 * è®°å½•è¯¥èŠ‚ç‚¹çš„èŠ‚ç‚¹ä¸‹æ ‡ï¼Œè¯¥èŠ‚ç‚¹çš„çˆ¶èŠ‚ç‚¹ä¸‹æ ‡ï¼Œä»¥åŠè¯¥èŠ‚ç‚¹çš„æ·±åº¦(å±‚æ•°)ï¼Œ
+	 * å¦‚æœå­èŠ‚ç‚¹ä¸ºç›®å½•ï¼Œåˆ™å°†è¯¥èŠ‚ç‚¹ä½œä¸ºä¸´æ—¶çš„æ ¹èŠ‚ç‚¹ï¼ŒåŒæ—¶ä»è¯¥èŠ‚ç‚¹è¿›è¡Œéå†ï¼Œè·å–è¯¥èŠ‚ç‚¹ä¸‹çš„æ–‡ä»¶åˆ—è¡¨ï¼Œå°†å…¶ä½œä¸ºç›®å½•çš„å­èŠ‚ç‚¹ï¼Œ
+	 * åŒæ—¶ï¼Œè®°å½•ä½œä¸ºç›®å½•çš„å­èŠ‚ç‚¹çš„ä¸ªæ•°ã€‚
+	 * ç›´åˆ°æ‰€æœ‰çš„èŠ‚ç‚¹éå†å®Œæ¯•ï¼Œå½“å‰å»ºç«‹å¥½äº†ä¸€é¢—å¤šå‰æœç´¢æ ‘ã€‚
+	 * éå†æ—¶ï¼Œé€šè¿‡éå†æ¯ä¸ªèŠ‚ç‚¹ï¼Œçœ‹æ˜¯å¦æœ‰å­èŠ‚ç‚¹åˆ—è¡¨ï¼Œæœ‰çš„è¯åˆ™å°†å…¶è¾“å‡ºï¼Œå¹¶ç»§ç»­æŸ¥æ‰¾æ˜¯å¦æœ‰å­èŠ‚ç‚¹
+	 * éå†æ—¶ï¼Œé€šè¿‡è®¿é—®åº¦ä¸ä¸º0çš„èŠ‚ç‚¹æ¥éå†æ–‡ä»¶ç›®å½•ï¼Œä¸éå†å¶å­ç»“ç‚¹ã€‚
 	 */
 	public static void build_Tree(File path, int depth) throws IOException {
 		// TODO Auto-generated method stub
@@ -264,7 +264,7 @@ public class Main {
 			File file = new File(path.getPath(), str);
 			if (file.isDirectory()) {
 				directorycount++;
-				build_Tree(file.getCanonicalFile(), currentDepth);// µİ¹éµ÷ÓÃ
+				build_Tree(file.getCanonicalFile(), currentDepth);// é€’å½’è°ƒç”¨
 			} else {
 				tn[TreeNodeNum_Start] = new TreeNode();
 				tn[TreeNodeNum_Start].setNodeName(file.getName());
