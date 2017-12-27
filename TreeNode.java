@@ -3,8 +3,8 @@ import java.util.ArrayList;
 import java.io.Serializable;  
   
 /**
- * @author ¼Æ161 CJY in School of Computer and Control Engineering in YTU,
- *         Êı¾İ½á¹¹¿Î³ÌÉè¼Æ Made on 2017-12-15 14:50:21, 
+ * @author JoyChen
+ *          Made on 2017-12-15 14:50:21, 
  *         Project's name: Directory's Tree
  *
  */
@@ -40,7 +40,7 @@ public class TreeNode implements Serializable {
         }  
     }  
   
-    /* ²åÈëÒ»¸öchild½Úµãµ½µ±Ç°½ÚµãÖĞ */  
+    /* æ’å…¥ä¸€ä¸ªchildèŠ‚ç‚¹åˆ°å½“å‰èŠ‚ç‚¹ä¸­ */  
     public void addChildNode(TreeNode treeNode) {  
         initChildList();  
         childList.add(treeNode);  
@@ -51,7 +51,7 @@ public class TreeNode implements Serializable {
             childList = new ArrayList<TreeNode>();  
     }  
   
-    /* ·µ»Øµ±Ç°½ÚµãµÄ¸¸±²½Úµã¼¯ºÏ */  
+    /* è¿”å›å½“å‰èŠ‚ç‚¹çš„çˆ¶è¾ˆèŠ‚ç‚¹é›†åˆ */  
     public List<TreeNode> getElders() {  
         List<TreeNode> elderList = new ArrayList<TreeNode>();  
         TreeNode parentNode = this.getParentNode();  
@@ -64,7 +64,7 @@ public class TreeNode implements Serializable {
         }  
     }  
   
-    /* ·µ»Øµ±Ç°½ÚµãµÄÍí±²¼¯ºÏ */  
+    /* è¿”å›å½“å‰èŠ‚ç‚¹çš„æ™šè¾ˆé›†åˆ */  
     public List<TreeNode> getJuniors() {  
         List<TreeNode> juniorList = new ArrayList<TreeNode>();  
         List<TreeNode> childList = this.getChildList();  
@@ -81,12 +81,12 @@ public class TreeNode implements Serializable {
         }  
     }  
   
-    /* ·µ»Øµ±Ç°½ÚµãµÄº¢×Ó¼¯ºÏ */  
+    /* è¿”å›å½“å‰èŠ‚ç‚¹çš„å­©å­é›†åˆ */  
     public List<TreeNode> getChildList() {  
         return childList;  
     }  
   
-    /* É¾³ı½ÚµãºÍËüÏÂÃæµÄÍí±² */  
+    /* åˆ é™¤èŠ‚ç‚¹å’Œå®ƒä¸‹é¢çš„æ™šè¾ˆ */  
     public void deleteNode() {  
         TreeNode parentNode = this.getParentNode();  
         int id = this.getSelfId();    
@@ -95,7 +95,7 @@ public class TreeNode implements Serializable {
         }  
     }  
   
-    /* É¾³ıµ±Ç°½ÚµãµÄÄ³¸ö×Ó½Úµã */      
+    /* åˆ é™¤å½“å‰èŠ‚ç‚¹çš„æŸä¸ªå­èŠ‚ç‚¹ */      
     public void deleteChildNode(int childId) {  
         List<TreeNode> childList = this.getChildList();  
         int childNumber = childList.size();  
@@ -108,7 +108,7 @@ public class TreeNode implements Serializable {
         }  
     }  
   
-    /* ¶¯Ì¬µÄ²åÈëÒ»¸öĞÂµÄ½Úµãµ½µ±Ç°Ê÷ÖĞ */  
+    /* åŠ¨æ€çš„æ’å…¥ä¸€ä¸ªæ–°çš„èŠ‚ç‚¹åˆ°å½“å‰æ ‘ä¸­ */  
     public boolean insertJuniorNode(TreeNode treeNode) {  
         int juniorParentId = treeNode.getParentId();  
         if (this.parentId == juniorParentId) {  
@@ -128,7 +128,7 @@ public class TreeNode implements Serializable {
         }  
     }  
   
-    /* ÕÒµ½Ò»¿ÅÊ÷ÖĞÄ³¸ö½Úµã */  
+    /* æ‰¾åˆ°ä¸€é¢—æ ‘ä¸­æŸä¸ªèŠ‚ç‚¹ */  
     public TreeNode findTreeNodeById(int id) {  
         if (this.selfId == id)  
             return this;  
@@ -147,7 +147,7 @@ public class TreeNode implements Serializable {
         }  
     }  
   
-    /* ±éÀúÒ»¿ÃÊ÷,²ã´Î±éÀú,ÒÔ¼°Êä³ö½ÚµãÊı*/  
+    /* éå†ä¸€æ£µæ ‘,å±‚æ¬¡éå†,ä»¥åŠè¾“å‡ºèŠ‚ç‚¹æ•°*/  
     public void traverse() {
         if (selfId < 0)  
             return;  
