@@ -15,6 +15,6 @@
         <button type="submit" value="submit" class="btn btn-primary btn-block btn-large">Let me Submit</button>
     </form>
 </div>
-<h5>Made By 茶慕丝稚</h5>
+<h5>Made By JoyChan</h5>
 </body>
 </html>
