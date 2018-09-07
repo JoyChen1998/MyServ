@@ -1,9 +1,11 @@
 import shutil
 import difflib as df
 import os
-# import docx
+# import docx       #for docx files judging .
 import os.path
 from zipfile import ZipFile
+
+#v1.0 write by joychan , lastest version will not upload on github . thx .
 
 tmp_dir = '\_temp\\'
 recordfile = 'record.txt'  # record submit files message
@@ -100,7 +102,7 @@ class JudgeSameFiles:
         return
 
     @staticmethod
-    # def FormatDocxFile(root):
+    # def FormatDocxFile(root): #for format docx files , to txt .
     #     global new_path
     #     if os.path.exists(root):
     #         new_path = root + tmp_dir
