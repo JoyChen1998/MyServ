@@ -7,7 +7,7 @@
 * codesub_SaveToDB.php 将操作保存至数据库中
 * subinfo.sql 是使用的数据表
 
-* js文件为 js/confirm.js
+* js文件为 js/confirm.js . <如果使用php进行判断可以不用这个文件>
 * css文件为 css/WebPage.css
 
 # 
