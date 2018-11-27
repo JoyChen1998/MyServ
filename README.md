@@ -12,4 +12,4 @@
 
 ### Python Files
 * Compare.py 为简单记录和处理文件重复检测的文件
-* img_to_str 为将图片转为字符写入文本的一个玩具
+* img_to_str.py 为将图片转为字符写入文本的一个玩具
