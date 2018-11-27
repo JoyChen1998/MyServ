@@ -10,5 +10,6 @@
 * js文件为 js/confirm.js . <如果使用php进行判断可以不用这个文件>
 * css文件为 css/WebPage.css
 
-# 
-* Python文件为简单记录和处理文件重复检测的文件
+### Python Files
+* Compare.py 为简单记录和处理文件重复检测的文件
+* img_to_str 为将图片转为字符写入文本的一个玩具
