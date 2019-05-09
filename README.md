@@ -9,8 +9,8 @@
   * js文件为 js/confirm.js . <如果使用php进行判断可以不用这个文件 -- 判断后缀是否为xxx>
   * css文件为 css/WebPage.css
 
-### Python Files (extend)
-* Compare.py 为简单记录和处理文件重复检测的文件
+### Python Files
+* compare-py dir下包含文件内容简易判重脚本
 * img_to_str.py 为将图片转为字符写入文本的一个玩具
 * email_sent_demo.py 为发送邮件样例
 * Pytorch dir下是有关torch的例子，from Morvan Python

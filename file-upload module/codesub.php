@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/WebPage.css" />
-    <script src="js/confirm.js"></script>
+    <script src="./js/confirm.js"></script>
 </head>
 <body>
 <div class="login">
