@@ -7,7 +7,7 @@ from zipfile import ZipFile
 
 #v1.0 write by joychan , lastest version will not upload on github . thx .
 
-tmp_dir = '\_temp\\'
+tmp_dir = '/_temp/'
 recordfile = 'record.txt'  # record submit files message
 sameSizefile = 'same_size_file.txt'  # record same_size files
 similarfiles = 'similar_file.txt'  # record differ files
@@ -124,9 +124,9 @@ class JudgeSameFiles:
                 for filename in filenames:
                     if len(filename) < 22:
                         NAME = filename.split('.')[0]
-                        name = dirpath + '\\' + str(NAME)
+                        name = dirpath + '/' + str(NAME)
                         try:
-                            with ZipFile(dirpath +'\\' + filename, 'r') as zp:
+                            with ZipFile(dirpath +'/' + filename, 'r') as zp:
                                 print(filename, 'Extracting all the files now...')
                                 zp.extractall(path=name)
                                 print('done!')
@@ -138,14 +138,14 @@ class JudgeSameFiles:
                                         if filename1.split('.')[-1] in allowType:
                                             portion = os.path.splitext(filename1)
                                             newname = portion[0] + '.txt'
-                                            print(dirpath1 + '\\' + filename1)
-                                            os.rename(dirpath1 + '\\' + filename1, dirpath1 + '\\' + newname)
+                                            print(dirpath1 + '/' + filename1)
+                                            os.rename(dirpath1 + '/' + filename1, dirpath1 + '/' + newname)
                                             print(filename1)
                                 for dirpath2, dirnames2, filenames2 in os.walk(dirx):
                                     for filename2 in filenames2:
                                         if filename2.split('.')[-1] == 'txt':
-                                            with open(dirpath2 + '\\' + filename2, 'rb') as f1:
-                                                with open(root + '\\' + NAME + '.txt', 'ab+') as f2:
+                                            with open(dirpath2 + '/' + filename2, 'rb') as f1:
+                                                with open(root + '/' + NAME + '.txt', 'ab+') as f2:
                                                     f2.write(f1.read())
                         except:
                             print(filename, ' 解压失败')
@@ -170,8 +170,8 @@ class JudgeSameFiles:
             print('Error :can not do filter!')
 test = JudgeSameFiles()
 test.unzipFile(new_path)
-ps = 'your directory'
-test.CodeSaveToTmpDir(new_path)
-test.RecordMessage(ps)
-test.CompareFileSize(ps)
-test.DifferCopyFile(ps)
+# ps = 'your directory'
+# test.CodeSaveToTmpDir(new_path)
+# test.RecordMessage(ps)
+# test.CompareFileSize(ps)
+# test.DifferCopyFile(ps)
