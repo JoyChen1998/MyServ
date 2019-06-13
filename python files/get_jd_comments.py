@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup as bs
 import json
+import argparse
 import pymysql
-
 
 
 class GetJdComment:
@@ -15,17 +15,16 @@ class GetJdComment:
         self.search_page_start = 1
         self.search_page_limit = 4
 
-        self.get_comment_limit = 10
-        self.productId = '100000177760' #for test
+        self.get_comment_limit = 7
+        self.productId = ''
         self.callback = 'fetchJSON_comment98vv6560'
 
         self.db_info = {
-            'host': 'yourhost',
-            'username': 'youruser',
-            'pass': 'yourpassword',
-            'dbname': 'yourdb'
+            'host': 'host',
+            'username': 'username',
+            'pass': 'pass',
+            'dbname': 'dbname'
         }
-        # first you should build a table for your insert & save data. see sql/jd.sql
 
         self.params = {
             'callback': self.callback,
@@ -47,9 +46,11 @@ class GetJdComment:
         db_info = self.db_info
         self.db = pymysql.connect(db_info['host'], db_info['username'], db_info['pass'], db_info['dbname'])
         self.cursor = self.db.cursor()
+        # first you should build a table for your insert & save data. see sql/jd.sql
 
-    def get_comment(self):
-        while self.params['page'] < self.get_comment_limit :
+    def get_comment(self, id):
+        self.params['productId'] = id
+        while self.params['page'] < self.get_comment_limit:
             t = self.s.get(self.url_header, params=self.params, headers=self.headers).text
             try:
                 t = t[len(self.callback) + 1:-2]
@@ -71,7 +72,7 @@ class GetJdComment:
                 c_client = comment['userClientShow']
                 print('{} {} {} {} {}\n {}\n {}\n'.format(c_id, c_nickname, c_userLevel, c_score, c_client, c_content,
                                                           c_creationTime))
-                # self.insert_comment_into_db(c_id, c_nickname, c_userLevel, c_score, c_client, c_content, c_creationTime)
+                self.insert_comment_into_db(c_id, c_nickname, c_userLevel, c_score, c_client, c_content, c_creationTime)
             self.params['page'] += 1
 
     def insert_comment_into_db(self, id, nickname, userLevel, score, client, content, creationTime):
@@ -102,7 +103,7 @@ class GetJdComment:
                 price = item.select('div.gl-i-wrap > div.p-price > strong > i')[0].text.split('.')[0]
                 shop = item.select('div.gl-i-wrap > div.p-shop')[0].text.lstrip('\n')
                 print('id:', id, ' name:', name, ' price:', price, ' shop:', shop)
-                # self.insert_goods_info_into_db(id, name, int(price), shop)
+                self.insert_goods_info_into_db(id, name, int(price), shop)
             self.search_page_start += 1
 
     def insert_goods_info_into_db(self, id, name, price, shop):
@@ -119,23 +120,18 @@ class GetJdComment:
         except:
             print('*' * 10, 'something error when insert goods\'s info into db', '*' * 10)
 
-    def truncate_table(self, tablename):
-        truncate_sql = "TRUNCATE" + str(tablename)
-        try:
-            self.cursor.execute(truncate_sql)
-            self.db.commit()
-            print('insert successful')
-        except:
-            print('*' * 10, 'something error when truncate table', str(tablename), '*' * 10)
-
-
     def end_phase(self):
         self.db.close()
         print('db has been closed')
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="This arg parser is for search items")
+    parser.add_argument('-i', '--item', help="item's name", type=str)
+    parser.add_argument('-v', '--value', help="item's id number", type=str)
+    args = parser.parse_args()
     gt = GetJdComment()
-    # gt.find_goods_item('iPhone XR')
-    gt.get_comment()
-    gt.end_phase()
+    if args.item is not None:
+        gt.find_goods_item(args.item)
+    if args.value is not None:
+        gt.get_comment(args.value)
