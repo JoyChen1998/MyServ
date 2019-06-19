@@ -1,9 +1,9 @@
 <?php
     header("Content-Type: text/html;charset=utf-8");
-    $username = "user";
-    $pass = "pass";
-    $host = "host";
-    $dbname = "db_name";
+    $username = "root";
+    $pass = "354215459";
+    $host = "localhost";
+    $dbname = "node";
     $date = array();
     // 创建连接
     $conn = new mysqli($host, $username, $pass, $dbname);
@@ -17,7 +17,7 @@
 
     $g_nickname = true;
     $g_level = true;
-    $g_id = false;
+    $g_id = true;
     $g_num = true;
     $g_score = true;
     $g_content = false;
@@ -34,6 +34,7 @@
             $data [$i]['name'] = $g_nickname == false ? null : $row['g_nickname'];
             $data [$i]['level'] = $g_level == false ? null : $row['g_level'];
             $data [$i]['client'] = $g_id == false ? null : $row['g_client'];
+            $data [$i]['score'] = $g_score == false ? null : $row['g_score'];
             $data [$i]['content'] = $g_content == false ? null : $row['g_content'];
             $i++;
         }
