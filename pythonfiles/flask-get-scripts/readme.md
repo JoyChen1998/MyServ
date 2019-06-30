@@ -2,9 +2,10 @@
 
 
 * note
-	! you need to open the port 8888 before you testing & doing tasks.
+	
+	you need to open the port 8888 before you testing & doing tasks.
 
--- 
+---
 
 * client.py # test for your flask-server.
 * hello dir 
@@ -14,4 +15,3 @@
 	+ static dir # flask templates  
 	+ templates # flask templates
 
-	
