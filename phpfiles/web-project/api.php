@@ -1,7 +1,7 @@
 <?php
     header("Content-Type: text/html;charset=utf-8");
-    $username = "root";
-    $pass = "354215459";
+    $username = "username";
+    $pass = "password";
     $host = "localhost";
     $dbname = "node";
     $date = array();

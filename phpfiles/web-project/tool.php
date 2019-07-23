@@ -38,7 +38,8 @@
                 let it = $('#goo').val();
                 $.ajax({
                     type: "get",
-                    url: "https://req.jyc1998.cn/item?item="+it,
+                    //url: "https://req.jyc1998.cn/item?item="+it,
+                    // send msg for scrapy all items.
                     success: function (data) {
                         console.log('data', data);
                     },
@@ -54,7 +55,8 @@
                 console.log(goods_name);
                 $.ajax({
                     type: "get",
-                    url: "https://req.jyc1998.cn/gvalue?value="+goods_name,
+                    //url: "https://req.jyc1998.cn/gvalue?value="+goods_name,
+                    // send msg for classify
                     success: function (data) {
                         console.log('data', data);
                             $.ajax({
@@ -92,6 +94,7 @@
                                         }
                                     }
                                     console.log(vip_array);
+                                    // if success , show chart 
                                     showchart(score_arr, vip_array);
                                 },
                                 error: function () {

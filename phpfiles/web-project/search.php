@@ -1,6 +1,6 @@
 <?php
-$username = "root";
-$pass = "354215459";
+$username = "username";
+$pass = "password";
 $host = "localhost";
 $dbname = "node";
 
