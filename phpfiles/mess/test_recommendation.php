@@ -19,7 +19,7 @@ if ($conn->connect_error) {
     die("连接失败: " . $conn->connect_error);
 }
 
-$select_sql = "SELECT uid, get_recom FROM rs WHERE uid=201658501147";
+$select_sql = "SELECT uid, get_recom FROM rs WHERE uid=".$_SEESSION['user'];
 $result = $conn->query($select_sql);
 $recomendation = array();
 if($result->num_rows >0) {
